@@ -8,7 +8,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/OpenFactorioServerManager/factorio-server-manager/bootstrap"
+	"github.com/jfroy/factorio-server-manager/bootstrap"
 )
 
 type ModPackMap map[string]*ModPack

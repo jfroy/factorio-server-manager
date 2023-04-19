@@ -11,7 +11,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/OpenFactorioServerManager/factorio-server-manager/lockfile"
+	"github.com/jfroy/factorio-server-manager/lockfile"
 )
 
 type ModInfoList struct {

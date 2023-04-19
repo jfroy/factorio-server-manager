@@ -6,7 +6,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/OpenFactorioServerManager/factorio-server-manager/bootstrap"
+	"github.com/jfroy/factorio-server-manager/bootstrap"
 	"github.com/gorilla/sessions"
 	"golang.org/x/crypto/bcrypt"
 	"gorm.io/driver/sqlite"

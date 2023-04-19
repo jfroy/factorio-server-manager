@@ -7,7 +7,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/OpenFactorioServerManager/factorio-server-manager/bootstrap"
+	"github.com/jfroy/factorio-server-manager/bootstrap"
 )
 
 type Credentials struct {

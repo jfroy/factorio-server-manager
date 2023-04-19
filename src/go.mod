@@ -1,4 +1,4 @@
-module github.com/OpenFactorioServerManager/factorio-server-manager
+module github.com/jfroy/factorio-server-manager
 
 go 1.17
 

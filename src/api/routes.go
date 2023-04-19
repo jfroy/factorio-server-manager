@@ -1,8 +1,8 @@
 package api
 
 import (
-	"github.com/OpenFactorioServerManager/factorio-server-manager/api/websocket"
-	"github.com/OpenFactorioServerManager/factorio-server-manager/factorio"
+	"github.com/jfroy/factorio-server-manager/api/websocket"
+	"github.com/jfroy/factorio-server-manager/factorio"
 	"net/http"
 
 	"github.com/gorilla/mux"

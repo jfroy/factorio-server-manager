@@ -15,14 +15,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/OpenFactorioServerManager/factorio-server-manager.git"
+    "url": "git+https://github.com/jfroy/factorio-server-manager.git"
   },
   "author": "Mitch Roote <mitch@r00t.ca>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/OpenFactorioServerManager/factorio-server-manager/issues"
+    "url": "https://github.com/jfroy/factorio-server-manager/issues"
   },
-  "homepage": "https://github.com/OpenFactorioServerManager/factorio-server-manager#readme",
+  "homepage": "https://github.com/jfroy/factorio-server-manager#readme",
   "devDependencies": {
     "@babel/core": "^7.21.4",
     "@babel/preset-env": "^7.21.4",

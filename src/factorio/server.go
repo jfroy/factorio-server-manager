@@ -15,8 +15,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/OpenFactorioServerManager/factorio-server-manager/api/websocket"
-	"github.com/OpenFactorioServerManager/factorio-server-manager/bootstrap"
+	"github.com/jfroy/factorio-server-manager/api/websocket"
+	"github.com/jfroy/factorio-server-manager/bootstrap"
 	"github.com/OpenFactorioServerManager/rcon"
 )
 

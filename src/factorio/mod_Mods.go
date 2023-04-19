@@ -12,7 +12,7 @@ import (
 	"net/http"
 	"path/filepath"
 
-	"github.com/OpenFactorioServerManager/factorio-server-manager/lockfile"
+	"github.com/jfroy/factorio-server-manager/lockfile"
 )
 
 type Mods struct {
