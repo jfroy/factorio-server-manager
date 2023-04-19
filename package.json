@@ -60,6 +60,6 @@
     "react-hook-form": "^7.15.4",
     "regenerator-runtime": "^0.13.9",
     "semver": "^6.3.0",
-    "tailwindcss": "^1.9.6"
+    "tailwindcss": "^3.3.1"
   }
 }
