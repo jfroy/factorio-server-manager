@@ -15,7 +15,7 @@ require (
 	github.com/smartystreets/goconvey v0.0.0-20190731233626-505e41936337 // indirect
 	github.com/stretchr/testify v1.6.1
 	github.com/syndtr/goleveldb v1.0.0
-	golang.org/x/crypto v0.0.0-20191029031824-8986dd9e96cf
+	golang.org/x/crypto v0.1.0
 	golang.org/x/net v0.7.0 // indirect
 	gopkg.in/ini.v1 v1.49.0 // indirect
 	gorm.io/driver/sqlite v1.1.4
