@@ -59,7 +59,7 @@
     "fuse.js": "^6.6.2",
     "react-hook-form": "^7.43.9",
     "regenerator-runtime": "^0.13.11",
-    "semver": "^7.5.0",
+    "semver": "^7.5.2",
     "tailwindcss": "^2",
     "util": "^0.12.5"
   }
