@@ -1,5 +1,5 @@
 // use this file only when compiling not windows (all unix systems)
-// +build !windows
+//go:build !windows
 
 package factorio
 
