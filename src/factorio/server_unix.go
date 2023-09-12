@@ -1,6 +1,3 @@
-// use this file only when compiling not windows (all unix systems)
-//go:build !windows
-
 package factorio
 
 import (
