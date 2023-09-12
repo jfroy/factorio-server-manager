@@ -1,11 +1,8 @@
 module.exports = {
-  purge: {
-    mode: 'all',
-    content: [
-      './ui/**/*.jsx',
-      './ui/**/*.html',
-    ]
-},
+  content: [
+    './ui/**/*.jsx',
+    './ui/**/*.html',
+  ],
   theme: {
     extend: {
       width: {
