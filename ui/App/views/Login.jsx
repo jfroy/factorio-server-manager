@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {useForm} from "react-hook-form";
 import user from "../../api/resources/user";
 import Button from "../components/Button";
-import {useHistory, useLocation} from "react-router";
+import {useLocation, useNavigate} from "react-router-dom";
 import Panel from "../components/Panel";
 import Input from "../components/Input";
 import Label from "../components/Label";
@@ -11,15 +11,15 @@ import Error from "../components/Error";
 
 const Login = ({handleLogin}) => {
     const {register, handleSubmit, formState: { errors }} = useForm();
-    const history = useHistory();
     const location = useLocation();
+    const navigate = useNavigate();
 
     const onSubmit = async data => {
         try {
             const loginAttempt = await user.login(data)
             if (loginAttempt?.username) {
                 await handleLogin(loginAttempt);
-                history.push('/');
+                navigate('/');
             }
         } catch (e) {
             console.log(e);
@@ -34,7 +34,7 @@ const Login = ({handleLogin}) => {
             const status = await user.status();
             if (status?.username) {
                 await handleLogin(status);
-                history.push(location?.state?.from || '/');
+                navigate(location?.state?.from || '/');
             }
         })();
     }, [])

@@ -2,9 +2,9 @@ import React, {useCallback, useState} from 'react';
 
 import user from "../api/resources/user";
 import Login from "./views/Login";
-import {Redirect, Route, Switch, useHistory} from "react-router";
+import {Route, Routes} from "react-router";
 import Controls from "./views/Controls";
-import {BrowserRouter} from "react-router-dom";
+import {BrowserRouter, Navigate} from "react-router-dom";
 import Logs from "./views/Logs";
 import Saves from "./views/Saves/Saves";
 import Layout from "./components/Layout";
@@ -45,35 +45,82 @@ const App = () => {
         }
     }, []);
 
-    const ProtectedRoute = useCallback(({component: Component, ...rest}) => (
-        <Route {...rest} render={(props) => (
-            isAuthenticated && Component
-                ? <Component serverStatus={serverStatus} {...props} />
-                : <Redirect to={{
-                    pathname: '/login',
-                    state: {from: props.location}
-                }}/>
-        )}/>
-    ), [isAuthenticated, serverStatus]);
+    const RequireAuth = useCallback(({ children, redirectTo }) => (
+        isAuthenticated ? children : <Navigate to={redirectTo} />
+    ), [isAuthenticated]);
 
     return (
-        <BrowserRouter basename="/">
-            <Switch>
-                <Route path="/login" render={() => (<Login handleLogin={handleAuthenticationStatus}/>)}/>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/login" element={
+                        <Login handleLogin={handleAuthenticationStatus}/>
+                    }
+                />
 
-                <Layout handleLogout={handleLogout} serverStatus={serverStatus}>
-                    <ProtectedRoute exact path="/" component={Controls}/>
-                    <ProtectedRoute path="/saves" component={Saves}/>
-                    <ProtectedRoute path="/mods" component={Mods}/>
-                    <ProtectedRoute path="/server-settings" component={ServerSettings}/>
-                    <ProtectedRoute path="/game-settings" component={GameSettings}/>
-                    <ProtectedRoute path="/console" component={Console}/>
-                    <ProtectedRoute path="/logs" component={Logs}/>
-                    <ProtectedRoute path="/user-management" component={UserManagement}/>
-                    <ProtectedRoute path="/help" component={Help}/>
-                    <Flash/>
-                </Layout>
-            </Switch>
+                <Route element={
+                        <Layout handleLogout={handleLogout} serverStatus={serverStatus} />
+                    }
+                >
+                    <Route path="/" element={
+                            <RequireAuth redirectTo="/login">
+                                <Controls serverStatus={serverStatus} />
+                            </RequireAuth>
+                        }
+                    />
+                    <Route path="/saves" element={
+                            <RequireAuth redirectTo="/login">
+                                <Saves serverStatus={serverStatus} />
+                            </RequireAuth>
+                        }
+                    />
+                    <Route path="/mods" element={
+                            <RequireAuth redirectTo="/login">
+                                <Mods serverStatus={serverStatus} />
+                            </RequireAuth>
+                        }
+                    />
+                    <Route path="/server-settings" element={
+                            <RequireAuth redirectTo="/login">
+                                <ServerSettings serverStatus={serverStatus} />
+                            </RequireAuth>
+                        }
+                    />
+                    <Route path="/game-settings" element={
+                            <RequireAuth redirectTo="/login">
+                                <GameSettings serverStatus={serverStatus} />
+                            </RequireAuth>
+                        }
+                    />
+                    <Route path="/console" element={
+                            <RequireAuth redirectTo="/login">
+                                <Console serverStatus={serverStatus} />
+                            </RequireAuth>
+                        }
+                    />
+                    <Route path="/logs" element={
+                            <RequireAuth redirectTo="/login">
+                                <Logs serverStatus={serverStatus} />
+                            </RequireAuth>
+                        }
+                    />
+                    <Route path="/user-management" element={
+                            <RequireAuth redirectTo="/login">
+                                <UserManagement serverStatus={serverStatus} />
+                            </RequireAuth>
+                        }
+                    />
+                    <Route path="/help" element={
+                            <RequireAuth redirectTo="/login">
+                                <Help serverStatus={serverStatus} />
+                            </RequireAuth>
+                        }
+                    />
+                    <Route element={
+                            <Flash/>
+                        }
+                    />
+                </Route>
+            </Routes>
         </BrowserRouter>
     );
 }

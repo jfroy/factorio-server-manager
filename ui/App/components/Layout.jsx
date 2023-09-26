@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
-import {NavLink} from "react-router-dom";
+import {NavLink, Outlet} from "react-router-dom";
 import Button from "./Button";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBars} from "@fortawesome/free-solid-svg-icons";
 
-const Layout = ({children, handleLogout, serverStatus}) => {
+const Layout = ({handleLogout, serverStatus}) => {
 
     const [isNavCollapsed, setIsNavCollapsed] = useState(true);
 
@@ -32,8 +32,7 @@ const Layout = ({children, handleLogout, serverStatus}) => {
                 onClick={() => setIsNavCollapsed(true)}
                 exact={true}
                 to={to}
-                activeClassName="bg-orange"
-                className={`hover:glow-orange accentuated bg-gray-light hover:bg-orange text-black font-bold py-2 px-4 w-full block${last ? '' : ' mb-1'}`}
+                className={({ isActive }) =>  `hover:glow-orange accentuated ${isActive ? 'bg-orange' : 'bg-gray-light'} hover:bg-orange text-black font-bold py-2 px-4 w-full block${last ? '' : ' mb-1'}`}
             >{children}</NavLink>)
     }
 
@@ -90,7 +89,7 @@ const Layout = ({children, handleLogout, serverStatus}) => {
             {/*Main*/}
             <div className="md:ml-88 min-h-screen">
                 <div className="container md:mx-auto pt-16 md:px-6">
-                    {children}
+                    <Outlet />
                 </div>
             </div>
         </>
